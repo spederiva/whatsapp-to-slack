@@ -27,28 +27,19 @@ def whatapp2csv(input_file_path):
             current_message = line
 
             # Check if the line starts with a date and time
-            if ' - ' in line and '/' in line and ':' in line:
-                first_dash = line.find(' - ')
-                if first_dash > -1 and first_dash < 25:
-                    date_time_separator = line[:first_dash].find(', ')
+            if line.startswith("["):
+                datetime_info = line[1 : line.find("]")]
+                current_date, current_time = datetime_info.split(", ")
 
-                    if date_time_separator > -1:
-                        datetime_info = line[:first_dash]
-                        potential_date, potential_time = datetime_info.split(", ")
-
-                        if '/' in potential_date and ':' in potential_time:
-                            current_date = potential_date
-                            current_time = potential_time
-
-                            name_message = line[first_dash+3:]                    
-                            if ': ' in name_message:
-                                current_name, current_message = name_message.split(": ", 1)
-                                is_deleted = False
-                            else:
-                                current_name = ""
-                                current_message = name_message
-                                is_deleted = True
-
+                # Check for a name and message
+                name_message = line[line.find("] ") + 2 :]
+                if ": " in name_message:
+                    current_name, current_message = name_message.split(": ", 1)
+                    is_deleted = False
+                else:
+                    current_name = ""
+                    current_message = name_message
+                    is_deleted = True
 
             # Check for attachments
             if "<attached:" in line:
