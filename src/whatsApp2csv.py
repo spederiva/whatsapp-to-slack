@@ -1,6 +1,4 @@
 import csv
-# import tkinter as tk
-# from tkinter import filedialog
 
 def whatapp2csv(input_file_path):
     if not input_file_path:

@@ -2,7 +2,6 @@ import argparse
 import sys
 import os
 import csv
-import time
 import datetime
 import pandas as pd
 import whatsApp2csv as wc
@@ -19,15 +18,23 @@ def main():
         print("ERROR: needs an import file")
         sys.exit()
 
+    # Check 
+    fname = ''
+    try:
+        with open(args.source, "r", encoding="utf-8") as f:
+            fname = f.name
+    except:
+        print('File does NOT exists. Please check file path')
+        exit()
+
     resultset = args.resultset
     if resultset == None:
-        with open(args.source, "r", encoding="utf-8") as f:
-            folder_name = os.path.dirname(f.name)
-            file_name = os.path.basename(f.name)
+        folder_name = os.path.dirname(fname)
+        file_name = os.path.basename(fname).rpartition('.')[0]
 
-            resultset = f'{folder_name}/OUTPUT-{file_name}'
+        resultset = f'{folder_name}/OUTPUT-{file_name}.csv'
 
-            print(f"NOTE: output filename parameter is missed. You can find the output at: {resultset}")
+        print(f"NOTE: output filename parameter is missed. You can find the output at: {resultset}")
 
     if not str( args.channel ):
         print("ERROR: needs define slack channel")
