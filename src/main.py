@@ -7,7 +7,7 @@ import pandas as pd
 import whatsApp2csv as wc
 
 def main():
-    parser = argparse.ArgumentParser(prog='whatsapp2slack', description='Use whatsapp2slack to convert your exported WhatsApp chat to a slack CSV format', epilog='For reporting bugs or requesting features, please visit https://github.com/sandsturm/whatsapp-converter/ and create an issue')
+    parser = argparse.ArgumentParser(prog='whatsapp2slack', description='Use whatsapp2slack to convert your exported WhatsApp chat to a slack CSV format', epilog='For reporting bugs or requesting features, please visit https://github.com/spederiva/whatsapp-to-slack and create an issue')
     parser.add_argument('-source', metavar='source', type=str, help='WhatsApp file containing the exported chat. It MUST be exported from Whatsapp Mobile App')
     parser.add_argument('-resultset', required=False, help='filename of the resultset. CSV extension should be included in the filename')
     parser.add_argument('-channel', help='slack channel name')
