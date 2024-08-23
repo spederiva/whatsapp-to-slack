@@ -75,9 +75,3 @@ def whatsapp2slack(source, resultset, channel):
 
 if __name__ == "__main__":
     main()
-
-    # source = 'files/WhatsApp Chat - Alon_Cathy_Sebastian.txt'
-    # resultset = 'files/OUTPUT2-WhatsApp Chat - Alon_Cathy_Sebastian.csv'
-    # channel = 'XXX'
-
-    # whatsapp2slack(source, resultset, channel)
