@@ -106,7 +106,6 @@ venv.bak/
 
 # Whatsapp Example Data
 .~lock*
-*.txt
 *.csv
 *.ods
 *.xls
@@ -117,3 +116,4 @@ env-*/
 files/
 
 .vscode
+test-files/

@@ -31,7 +31,7 @@ source venv/bin/activate
 Now, install the dependencies
 
 ```
-pip install pandas
+pip install pandas colorama
 ```
 
 Everything should work correctly now.
@@ -46,10 +46,12 @@ python src/main.py -h
 
 This will display:
 ```
-  -h, --help            show this help message and exit
-  -source source        WhatsApp file containing the exported chat. It MUST be exported from Whatsapp Mobile App
-  -resultset RESULTSET  filename of the resultset. CSV extension should be included in the filename
-  -channel CHANNEL      slack channel name
+  -h, --help            Show this help message and exit
+  -source               WhatsApp file containing the exported chat. It MUST be exported from Whatsapp Mobile App
+  -resultset            Filename of the resultset. CSV extension should be included in the filename
+  -channel              Slack channel name
+  -datesep              Specifies the separator character that appears between the year, month, and day
+  -formatdatetime       Full DateTime Format. Must define 'datesep' as well. Default: %m/%d/%y %H:%M  
 ```
 
 ### Usage

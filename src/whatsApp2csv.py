@@ -1,9 +1,11 @@
 import csv
 
-def whatapp2csv(input_file_path):
+def whatapp2csv(input_file_path, datesep = '/'):
     if not input_file_path:
         print("No input file selected. Exiting.")
         exit()
+
+    print(f'Using Date Separator: {datesep}')
 
     # Open the input and output files
     with open(input_file_path, "r", encoding="utf-8") as infile:
@@ -22,10 +24,13 @@ def whatapp2csv(input_file_path):
         for line in infile:
             line = line.strip()
             line = line.replace(u'\u200e', '') #replace unicode trash character
+            line = line.replace(u'\u200f', '') #replace unicode trash character
+            line = line.replace(u'\u202a', '') #replace unicode trash character
+            line = line.replace(u'\u202c', '') #replace unicode trash character
             current_message = line
 
             # Check if the line starts with a date and time
-            if ' - ' in line and '/' in line and ':' in line:
+            if ' - ' in line and datesep in line and ':' in line:
                 first_dash = line.find(' - ')
                 if first_dash > -1 and first_dash < 25:
                     date_time_separator = line[:first_dash].find(', ')
@@ -34,7 +39,7 @@ def whatapp2csv(input_file_path):
                         datetime_info = line[:first_dash]
                         potential_date, potential_time = datetime_info.split(", ")
 
-                        if '/' in potential_date and ':' in potential_time:
+                        if datesep in potential_date and ':' in potential_time:
                             current_date = potential_date
                             current_time = potential_time
 
