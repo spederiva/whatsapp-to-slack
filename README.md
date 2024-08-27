@@ -68,7 +68,7 @@ python src/main.py -source samples/conversations.txt -channel SAMPLE
 python src/main.py -source samples/conversations.txt -channel SAMPLE -datesep=. -formatdatetime=%d.%m.%Y\ %H:%M
 ```
 
-This creates a file named `OUTPUT-conversations.csv` in the 'samples' folder, which can be imported to Slack.
+Both examples create a file named `OUTPUT-conversations.csv` in the 'samples' folder, which can be imported to Slack.
 
 ### How to Import
 
