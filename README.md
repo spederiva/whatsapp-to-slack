@@ -65,14 +65,14 @@ python src/main.py -source samples/conversations.txt -channel SAMPLE
 
 ```
 // Exmaple including datetime formating
-python src/main.py -source samples/conversations.txt -channel SAMPLE -datesep=. -formatdatetime=%d.%m.%Y\ %H:%M
+python src/main.py -source samples/conversations.txt -channel SAMPLE -datesep=. -formatdatetime="%d.%m.%Y\ %H:%M"
 ```
 
 Both examples create a file named `OUTPUT-conversations.csv` in the 'samples' folder, which can be imported to Slack.
 
 ### How to Import
 
-Note: You need to be the workspace administrator.
+Note: You need to be the workspace owner.
 
 1. Go to https://sodyo.slack.com/admin
 1. Login with an administrator

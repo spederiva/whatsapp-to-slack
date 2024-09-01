@@ -5,8 +5,6 @@ def whatapp2csv(input_file_path, datesep = '/'):
         print("No input file selected. Exiting.")
         exit()
 
-    print(f'Using Date Separator: {datesep}')
-
     # Open the input and output files
     with open(input_file_path, "r", encoding="utf-8") as infile:
         # Create list

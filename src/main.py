@@ -37,7 +37,7 @@ def main():
 
         resultset = f'{folder_name}/OUTPUT-{file_name}.csv'
 
-        print(f"NOTE: output filename parameter is missed. You can find the output at: {resultset}")
+        print(Fore.GREEN + f"NOTE: output filename parameter is missed. Output file will be located at: {resultset}\n" + Style.RESET_ALL)
 
     if not str( args.channel ):
         print("ERROR: needs define slack channel")
@@ -52,10 +52,12 @@ def main():
 
 
 def whatsapp2slack(source, resultset, channel, datesep, datetime_format):
-    print('Start WhatsApp to Slack Convertion')
+    print(Fore.BLUE + 'Start WhatsApp to Slack Convertion\n' + Style.RESET_ALL)
     print(f'Source Filename: {source}')
     print(f'Target Filename: {resultset}')
     print(f'Slack Channel: {channel}')
+    print(f'DateTime Format: {datetime_format}')
+    print(f'Using Date Separator: {datesep}')
 
     messages = wc.whatapp2csv(source, datesep)
 
